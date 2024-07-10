@@ -6,7 +6,7 @@ const createAgreement = async (amount) => {
     try {
         const headers = await authHeaders();
         const response = await axios.post(bkashConfig.create_agreement_url, {
-            'amount': amount
+            amount: amount
         }, {
             headers: headers,
         });
