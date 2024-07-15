@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+      "node-global-storage": "^<3.0.1>"
+    }
+  }
+  

@@ -1,12 +1,12 @@
-const bkashConfig = require("../config/bkashConfig.json");
-const globals = require("node-global-storage");
+const globalStorage = require('node-global-storage');
+const tokenHeaders = require('./tokenHeaders.js');
+const grantToken = require('./grantToken.js');
 
-const authHeaders = async () => {  
+const authHeaders = async () => {
+    const token = await grantToken();  // Ensure you have a valid token
     return {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        authorization: `Bearer ${globals.get("id_token")}`,
-        "x-app-key": bkashConfig.app_key,
+        ...tokenHeaders(),
+        Authorization: `Bearer ${token}`
     };
 };
 
